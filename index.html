@@ -76,7 +76,6 @@
             opacity: 1;
         }
 
-        /* # put it on the next to the uni bonn logo */
         .lamarr-logo {
             position: absolute;
             top: 20px;
@@ -201,14 +200,15 @@
 
         .paper {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+            grid-template-columns: 160px 1fr;
+            gap: 25px;
             padding: 25px;
             margin-bottom: 25px;
             background: var(--white);
             border: 2px solid #E8EDF2;
             border-radius: 12px;
             transition: all 0.3s ease;
+            align-items: center;
         }
 
         .paper:hover {
@@ -216,17 +216,58 @@
             box-shadow: 0 4px 16px rgba(0, 82, 147, 0.1);
         }
 
+        .paper-image {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #E8EDF2;
+            transition: all 0.3s ease;
+        }
+
+        .paper:hover .paper-image {
+            border-color: var(--bonn-yellow);
+            transform: scale(1.05);
+        }
+
+        .paper-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
         .paper-title {
             font-size: 1.3em;
-            color: var(--bonn-blue);
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+        }
+
+        .paper-title a {
+            color: var(--bonn-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .paper-title a:hover {
+            color: var(--bonn-light-blue);
+            text-decoration: underline;
         }
 
         .paper-authors {
             color: var(--text-light);
             font-size: 1em;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
+        }
+
+        .paper-authors a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .paper-authors a:hover {
+            color: var(--bonn-blue);
+            text-decoration: underline;
         }
 
         .paper-venue {
@@ -275,12 +316,33 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .paper {
+                grid-template-columns: 1fr;
+            }
+
+            .paper-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            .uni-logo {
+                width: auto;
+                height: 60px;
+                top: 20px;
+                right: 20px;
+            }
+
+            .lamarr-logo {
+                width: auto;
+                height: 90px;
+                top: 20px;
+                left: 20px;
+            }
         }
     </style>
   
-  
   <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -340,7 +402,8 @@
             <h2><span class="emoji">🔬</span>Featured Research</h2>
             
             <div class="paper">
-                <div>
+                <img src="images/papers/BMW.png" alt="HiFi-LLP" class="paper-image">
+                <div class="paper-content">
                     <div class="paper-title"><a href="https://www.researchgate.net/publication/397693267_HiFi-LLP_High-Fidelity_Low-Cost_Latency_Predictors_with_Confidence_for_Robust_HW-NAS">HiFi-LLP: High-Fidelity, Low-Cost Latency Predictors with Confidence for Robust HW-NAS</a></div>
                     <div class="paper-authors">
                       <a href="https://scholar.google.com/citations?user=OS_qcsAAAAAJ&hl=en">Shambhavi Balamuthu Sampath<sup><strong>*</strong></sup></a>,
@@ -359,7 +422,8 @@
             </div>
 
             <div class="paper">
-                <div>
+                <img src="images/papers/MPINB.png" alt="Microscope" class="paper-image">
+                <div class="paper-content">
                     <div class="paper-title"><a href="https://www.biorxiv.org/content/10.1101/2025.04.01.646316v1.abstract">A modular multi-color fluorescence microscope for simultaneous tracking of cellular activity and behavior</a></div>
                     <div class="paper-authors">
                       Euphrasie Ramahefarivo,
@@ -374,31 +438,29 @@
             </div>
 
             <div class="paper">
-                <div>
+                <img src="images/papers/FEV.png" alt="Automotive AI" class="paper-image">
+                <div class="paper-content">
                     <div class="paper-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5153452">Generative Artificial Intelligence for Model-Based Graphical Programming in Automotive Function Development</a></div>
                     <div class="paper-authors">
                       <a href="https://www.linkedin.com/in/abdelrahman-abdalla-875570b5/">Abdelrahman Abdalla</a>,
                       Harsh Pandey,
                       <strong>Behzad Shomali</strong>,
-                      <a href="https://www.linkedin.com/in/dr-joschka-schaub-b7083b239/">Joschka
-                        Schaub</a>,
+                      <a href="https://www.linkedin.com/in/dr-joschka-schaub-b7083b239/">Joschka Schaub</a>,
                       Arne Müller,
-                      <a
-                        href="https://www.mmp.rwth-aachen.de/cms/mechatronics/das-lehr-und-forschungsgebiet/team/~rgeli/mitarbeiter-campus-/?gguid=PER-YN3SASK&allou=1">Markus
-                        Eisenbarth</a>,
-                      <a href="https://scholar.google.com/citations?user=l8CEbkQAAAAJ&hl=de"> Jakob Andert</a>
+                      <a href="https://www.mmp.rwth-aachen.de/cms/mechatronics/das-lehr-und-forschungsgebiet/team/~rgeli/mitarbeiter-campus-/?gguid=PER-YN3SASK&allou=1">Markus Eisenbarth</a>,
+                      <a href="https://scholar.google.com/citations?user=l8CEbkQAAAAJ&hl=de">Jakob Andert</a>
                     </div>
                     <div class="paper-venue">SSRN, 2024</div>
                 </div>
             </div>
 
             <div class="paper">
-                <div>
-                    <div class="paper-title"><a
-                    href="https://www.researchgate.net/publication/354325551_Classification_of_Tuberculosis_Type_on_CT_Scans_of_Lungs_using_a_fusion_of_2D_and_3D_Deep_Convolutional_Neural_Networks?_sg%5B0%5D=J3y3RXmEI37i3IKosRK6_CC10R1K92u-Wis3VfLC42_IFCwJeZO28asc4bIPGO5PSDdUdYeBH3gcfRl9VaWsDV3FKvjlN7w4uJmphEwS.3yAjxmmWxNEK0tZ4KyEEiNKGPJVSDgwzMkoovDV1n1VkEfv6G_nsciPWkPuTFFhIc1TfxKO-U8ii7QWkc6N9rg&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19">Classification of Tuberculosis Type on CT Scans of Lungs using a fusion of 2D and 3D Deep Convolutional Neural Networks</a></div>
+                <img src="images/papers/ImageCLEF.png" alt="Tuberculosis Classification" class="paper-image">
+                <div class="paper-content">
+                    <div class="paper-title"><a href="https://www.researchgate.net/publication/354325551_Classification_of_Tuberculosis_Type_on_CT_Scans_of_Lungs_using_a_fusion_of_2D_and_3D_Deep_Convolutional_Neural_Networks">Classification of Tuberculosis Type on CT Scans of Lungs using a fusion of 2D and 3D Deep Convolutional Neural Networks</a></div>
                     <div class="paper-authors">
                       <a href="https://emadaghajanzadeh.github.io/">Emad Aghajanzadeh</a>,
-                      <strong> Behzad Shomali</strong>,
+                      <strong>Behzad Shomali</strong>,
                       <a href="https://www.linkedin.com/in/diba-aminshahidi/">Diba Aminshahidi</a>,
                       <a href="https://www.linkedin.com/in/navid-ghassemi-687384b5/">Navid Ghassemi</a>
                     </div>
