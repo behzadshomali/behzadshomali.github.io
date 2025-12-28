@@ -2,43 +2,270 @@
 <html lang="en">
 
 <head>
-  <style>
-    code.language-bash {
-      background-color: #282c34;
-      color: #ffffff;
-      border: 1px solid #3e4451;
-      border-radius: 4px;
-      padding: 4px 8px;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.9em;
-      display: inline-block;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+  <meta name="author" content="Behzad Shomali">
   <title>Behzad Shomali</title>
 
-  <meta name="author" content="Behzad Shomali">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+        :root {
+            /* University of Bonn inspired colors */
+            --bonn-blue: #005293;
+            --bonn-yellow: #FFCD00;
+            --bonn-light-blue: #2D7FB8;
+            --bonn-gray: #6C7A89;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #F8F9FA;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--bg-light) 0%, #E8EDF2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--bonn-blue) 0%, var(--bonn-light-blue) 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 24px rgba(0, 82, 147, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--bonn-yellow);
+        }
+
+        .uni-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .uni-logo:hover {
+            opacity: 1;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid var(--bonn-yellow);
+            margin: 0 auto 20px;
+            object-fit: cover;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .bio {
+            font-size: 1.1em;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 20px auto;
+            opacity: 0.95;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .social-links a:hover {
+            background: var(--bonn-yellow);
+            color: var(--bonn-blue);
+            border-color: var(--bonn-yellow);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            background: var(--white);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--bonn-yellow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        h2 {
+            color: var(--bonn-blue);
+            font-size: 2em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            width: 8px;
+            height: 40px;
+            background: linear-gradient(180deg, var(--bonn-yellow) 0%, var(--bonn-light-blue) 100%);
+            border-radius: 4px;
+        }
+
+        .news-item {
+            padding: 20px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #F8FCFF 0%, var(--bg-light) 100%);
+            border-left: 4px solid var(--bonn-light-blue);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .news-item:hover {
+            border-left-color: var(--bonn-yellow);
+            background: linear-gradient(to right, #FFF9E6 0%, var(--bg-light) 100%);
+            transform: translateX(8px);
+        }
+
+        .news-date {
+            color: var(--bonn-blue);
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .paper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            background: var(--white);
+            border: 2px solid #E8EDF2;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .paper:hover {
+            border-color: var(--bonn-yellow);
+            box-shadow: 0 4px 16px rgba(0, 82, 147, 0.1);
+        }
+
+        .paper-title {
+            font-size: 1.3em;
+            color: var(--bonn-blue);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .paper-authors {
+            color: var(--text-light);
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+
+        .paper-venue {
+            color: var(--bonn-light-blue);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .emoji {
+            font-size: 1.3em;
+            margin-right: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--bonn-gray);
+            font-size: 0.9em;
+            margin-top: 40px;
+            background: var(--white);
+            border-radius: 12px;
+            border-top: 3px solid var(--bonn-yellow);
+        }
+
+        footer a {
+            color: var(--bonn-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: var(--bonn-light-blue);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+  
+  
   <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <style>
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    h1,
-    h2,
-    .name {
-      font-family: 'Montserrat', sans-serif;
-    }
-  </style>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@500;700&display=swap"
-    rel="stylesheet">
-
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -51,270 +278,87 @@
   gtag('config', 'G-J5BMCY2PY4');
 </script>
 
-<body style="background-color: #f9f9f9;">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Universit%C3%A4t_Bonn.svg/500px-Universit%C3%A4t_Bonn.svg.png" alt="University of Bonn Logo" class="uni-logo">
+            <img src="images/BehzadShomali.jpeg" alt="Behzad Shomali" class="profile-photo">
+            <h1>Behzad Shomali</h1>
+            <div class="bio">
+                I'm currently pursuing a PhD at the <strong>University of Bonn</strong> with a focus on reasoning in large language models (LLMs), particularly in multilingual contexts.
+                <br><br>
+                Over the years, I've worked across both academia and industry, gaining experience in research, applied machine learning, and effective collaboration. This has included publishing research papers, building machine learning applications, and collaborating across interdisciplinary teams.
+                <br><br>
+                My Master's thesis at <strong>BMW Group</strong> focused on developing a probabilistic latency predictor for neural architecture search (NAS). Before that, at <strong>FEV Group</strong> in collaboration with RWTH Aachen University, I worked on building LLM-based AI assistants for coding environments. Earlier in my career, during my time at the <strong>Max Planck Institute</strong>, I was involved in analyzing high-dimensional scans of the C. elegans brain.
+            </div>
+            <div class="social-links">
+                <a href="mailto:behzad.shomali@gmail.com">Email</a>
+                <a href="https://scholar.google.com/citations?user=l-BkqQ8AAAAJ&hl=en&oi=ao">Scholar</a>
+                <a href="https://www.researchgate.net/profile/Behzad_Shomali">ResearchGate</a>
+                <a href="https://www.linkedin.com/in/behzad-shomali-59679859/">LinkedIn</a>
+                <a href="https://github.com/behzadshomali/">Github</a>
+            </div>
+        </header>
 
-  <table
-    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:2.5%;width:63%;vertical-align:middle">
-                  <p class="name" style="text-align: center;">
-                    Behzad Shomali
-                  </p>
-                  <p>
-                    I'm currently pursuing a PhD at the University of Bonn with a focus on reasoning in large language models (LLMs), particularly in multilingual contexts.
-                  </p>
-                  <p>
-                    Over the years, I've worked across both academia and industry, gaining experience in research, applied machine learning, and effective collaboration. 
-                    This has included publishing research papers, building machine learning applications, and collaborating across interdisciplinary teams. 
-                  </p>
-                  <p>
-                    My Master's thesis at BMW Group focused on developing a probabilistic latency predictor for neural architecture search (NAS). Before that, at FEV Group 
-                    in collaboration with RWTH Aachen University, I worked on building LLM-based AI assistants for coding environments. Earlier in my career, during my time 
-                    at the Max Planck Institute, I was involved in analyzing high-dimensional scans of the C. elegans brain.
-                  </p>
-                  <p style="text-align:center">
-                    <a href="mailto:behzad.shomali@gmail.com">Email</a> &nbsp;/&nbsp;
-                    <a href="https://scholar.google.com/citations?user=l-BkqQ8AAAAJ&hl=en&oi=ao">Scholar</a>
-                    &nbsp;/&nbsp;
-                    <a href="https://www.researchgate.net/profile/Behzad_Shomali">ResearchGate</a> &nbsp;/&nbsp;
-                    <a href="https://www.linkedin.com/in/behzad-shomali-59679859/">LinkedIn</a> &nbsp;/&nbsp;
-                    <a href="https://github.com/behzadshomali/">Github</a>
-                  </p>
-                </td>
-                <td style="padding:2.5%;width:37%;max-width:37%">
-                  <a href="images/BehzadShomali.jpeg"><img
-                      style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo"
-                      src="images/BehzadShomali.jpeg" class="hoverZoomLink"></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="section">
+            <h2><span class="emoji">📢</span>News</h2>
+            <div class="news-item">
+                <div class="news-date">08.2025</div>
+                Our paper <em>"HiFi-LLP: High-Fidelity, Low-Cost Latency Predictors with Confidence for Robust HW-NAS"</em> got accepted at 38th IEEE International System-on-Chip Conference (SOCC 2025)!
+            </div>
+            <div class="news-item">
+                <div class="news-date">08.2025</div>
+                I started my PhD studies at the University of Bonn.
+            </div>
+            <div class="news-item">
+                <div class="news-date">07.2025</div>
+                I've officially graduated with a Master's degree in Computer Science from the University of Bonn.
+            </div>
+            <div class="news-item">
+                <div class="news-date">03.2025</div>
+                I submitted my Master's thesis at the University of Bonn, conducted at BMW: <em>"High-Fidelity, Sample-Efficient Latency Predictor for Hybrid Hardware-Aware NAS"</em>
+            </div>
+        </div>
 
-          <!-- News -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <h2>📢 News</h2>
-              <div class="news-item">
-                <p><strong> 08.2025 </strong>&ensp; Our paper <i>“HiFi-LLP: High-Fidelity, Low-Cost Latency Predictors with Confidence for Robust HW-NAS”</i> got accepted at 38th IEEE International System-on-Chip Conference (<b>SOCC 2025</b>)!</p>
-                <p><strong> 08.2025 </strong>&ensp; I started my PhD studies at the University of Bonn.</p>
-                <p><strong> 07.2025 </strong>&ensp; I've officially graduated with a Master's degree in Computer Science from the University of Bonn.</p>
-                <p><strong> 03.2025 </strong>&ensp; I submitted my Master's thesis at the University of Bonn, conducted at BMW: <i>“High-Fidelity, Sample-Efficient Latency Predictor for Hybrid Hardware-Aware NAS”</i></p>
-              </div>
-              </td>
-            </tr>
-        </tbody></table>
+        <div class="section">
+            <h2><span class="emoji">🔬</span>Featured Research</h2>
+            
+            <div class="paper">
+                <div>
+                    <div class="paper-title">HiFi-LLP: High-Fidelity, Low-Cost Latency Predictors with Confidence for Robust HW-NAS</div>
+                    <div class="paper-authors">Shambhavi Balamuthu Sampath*, Behzad Shomali*, Nael Fasfous, Moritz Thoma, Judeson Anthony Fernando, Lukas Frickenstein, Pierpaolo Mori, Manoj Rohit Vemparala, Alexander Frickenstein, Walter Stechele</div>
+                    <div class="paper-venue">38th IEEE SOCC, 2025</div>
+                </div>
+            </div>
 
-        <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+            <div class="paper">
+                <div>
+                    <div class="paper-title">A modular multi-color fluorescence microscope for simultaneous tracking of cellular activity and behavior</div>
+                    <div class="paper-authors">Euphrasie Ramahefarivo, Leonard Böger, Takkasila Saichol, Behzad Shomali, Luis Alvarez, Monika Scholz</div>
+                    <div class="paper-venue">bioRxiv, 2025</div>
+                </div>
+            </div>
 
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <h2>🔬 Featured Research</h2>
+            <div class="paper">
+                <div>
+                    <div class="paper-title">Generative Artificial Intelligence for Model-Based Graphical Programming in Automotive Function Development</div>
+                    <div class="paper-authors">Abdelrahman Abdalla, Harsh Pandey, Behzad Shomali, Joschka Schaub, Arne Müller, Markus Eisenbarth, Jakob Andert</div>
+                    <div class="paper-venue">SSRN, 2024</div>
+                </div>
+            </div>
 
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            <div class="paper">
+                <div>
+                    <div class="paper-title">Classification of Tuberculosis Type on CT Scans of Lungs using a fusion of 2D and 3D Deep Convolutional Neural Networks</div>
+                    <div class="paper-authors">Emad Aghajanzadeh, Behzad Shomali, Diba Aminshahidi, Navid Ghassemi</div>
+                    <div class="paper-venue">CLEF2021 Working Notes, 2021</div>
+                </div>
+            </div>
+        </div>
 
-          <table
-            style="width:140%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <!-- BMW (thesis) paper -->
-              <tr onmouseout="difsurvey_stop()" onmouseover="difsurvey_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle"> <img src='images/papers/BMW.png'
-                    width="260">
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="">
-                    <span class="papertitle">HiFi-LLP: High-Fidelity, Low-Cost Latency Predictors with Confidence for Robust HW-NAS
-                    </span>
-                  </a>
-                  <br>
-                  <a href="https://scholar.google.com/citations?user=OS_qcsAAAAAJ&hl=en">Shambhavi Balamuthu Sampath<sup><strong>*</strong></sup></a>,
-                   <strong>Behzad Shomali</strong><sup><strong>*</strong></sup>, 
-                   <a href="https://scholar.google.com/citations?user=x9wjapMAAAAJ&hl=en">Nael Fasfous</a>,
-                   <a href="https://scholar.google.com/citations?user=YQrGEjQAAAAJ&hl=de">Moritz Thoma</a>,
-                   <a href="https://juantfer.github.io/">Judeson Anthony Fernando</a>, 
-                   <a href="https://scholar.google.com/citations?user=pX2-y5MAAAAJ&hl=de">Lukas Frickenstein</a>, 
-                   <a href="https://scholar.google.com/citations?user=knjS148AAAAJ&hl=it">Pierpaolo Mori</a>, 
-                   <a href="https://scholar.google.com/citations?user=WDNeaMoAAAAJ&hl=en">Manoj Rohit Vemparala</a>, 
-                   <a href="https://scholar.google.com/citations?user=oPtZGDkAAAAJ&hl=de">Alexander Frickenstein</a>,
-                   <a href="https://scholar.google.com/citations?user=h7erxnkAAAAJ&hl=de">Walter Stechele</a>
-                  <br>
-                  <em>38th IEEE SOCC</em>, 2025
-                  <br>
-                </td>
-
-
-              <!-- MPINB paper -->
-              <tr onmouseout="difsurvey_stop()" onmouseover="difsurvey_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle"> <img src='images/papers/MPINB.png '
-                    width="260">
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://www.biorxiv.org/content/10.1101/2025.04.01.646316v1.abstract">
-                    <span class="papertitle">A modular multi-color fluorescence microscope for simultaneous tracking of
-                      cellular activity and behavior
-                    </span>
-                  </a>
-                  <br>
-                  Euphrasie Ramahefarivo,
-                   <a href="https://scholar.google.com/citations?user=KggNjOoAAAAJ&hl=de">Leonard Böger</a>,
-                   <a href="https://www.linkedin.com/in/takkasila-saichol-6b6596104/">Takkasila Saichol</a>,
-                   <strong>Behzad Shomali</strong>,
-                   <a href="https://www.linkedin.com/in/luis-alvarez-3b051a65/">Luis Alvarez</a>,
-                   <a href="http://scholz-lab.com/">Monika Scholz</a>
-                  <br>
-                  <em>bioRxiv</em>, 2025
-                  <br>
-                </td>
-
-                <!-- FEV paper -->
-              <tr onmouseout="difsurvey_stop()" onmouseover="difsurvey_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle"> <img src='images/papers/FEV.png' width="260">
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5153452">
-                    <span class="papertitle">Generative Artificial Intelligence for Model-Based Graphical Programming in
-                      Automotive Function Development
-                    </span>
-                  </a>
-                  <br>
-                  <a href="https://www.linkedin.com/in/abdelrahman-abdalla-875570b5/">Abdelrahman
-                    Abdalla</a>,
-                   Harsh Pandey,
-                   <strong>Behzad Shomali</strong>,
-                   <a href="https://www.linkedin.com/in/dr-joschka-schaub-b7083b239/">Joschka
-                    Schaub</a>,
-                   Arne Müller,
-                   <a
-                    href="https://www.mmp.rwth-aachen.de/cms/mechatronics/das-lehr-und-forschungsgebiet/team/~rgeli/mitarbeiter-campus-/?gguid=PER-YN3SASK&allou=1">Markus
-                    Eisenbarth</a>,
-                   <a href="https://scholar.google.com/citations?user=l8CEbkQAAAAJ&hl=de"> Jakob Andert</a>
-                  <br>
-                  <em>SSRN</em>, 2024
-                  <br>
-                </td>
-
-                <!-- ImageCLEF Paper -->
-              <tr onmouseout="difsurvey_stop()" onmouseover="difsurvey_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle"> <img src='images/papers/ImageCLEF.png'
-                    width="260">
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a
-                    href="https://www.researchgate.net/publication/354325551_Classification_of_Tuberculosis_Type_on_CT_Scans_of_Lungs_using_a_fusion_of_2D_and_3D_Deep_Convolutional_Neural_Networks?_sg%5B0%5D=J3y3RXmEI37i3IKosRK6_CC10R1K92u-Wis3VfLC42_IFCwJeZO28asc4bIPGO5PSDdUdYeBH3gcfRl9VaWsDV3FKvjlN7w4uJmphEwS.3yAjxmmWxNEK0tZ4KyEEiNKGPJVSDgwzMkoovDV1n1VkEfv6G_nsciPWkPuTFFhIc1TfxKO-U8ii7QWkc6N9rg&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19">
-                    <span class="papertitle">Classification of Tuberculosis Type on CT Scans of Lungs using a fusion of
-                      2D and 3D Deep Convolutional Neural Networks
-                    </span>
-                  </a>
-                  <br>
-                  <a href="https://emadaghajanzadeh.github.io/">Emad Aghajanzadeh</a>,
-                   <strong> Behzad Shomali</strong>,
-                   <a href="https://www.linkedin.com/in/diba-aminshahidi/">Diba Aminshahidi</a>,
-                   <a href="https://www.linkedin.com/in/navid-ghassemi-687384b5/">Navid
-                    Ghassemi</a>
-                  <br>
-                  <em>CLEF2021 Working Notes</em>, 2021
-                  <br>
-                </td>
-        </td>
-
-    </tbody>
-  </table>
-
-  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr>
-        <td style="padding:0px">
-          <!-- <br> -->
-          <hr
-            style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
-          <p style="text-align:center;font-size:small;">
-            Source code and design borrowed from <a href="https://jonbarron.info/"> Jon Barron</a>'s and <a
-              href="https://walidbousselham.com/"> Walid Bousselham</a>'s websites.
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  </td>
-  </tr>
-  </table>
-  <style>
-    a {
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: #5bd889;
-    }
-  </style>
-  <style>
-    /* News items */
-    .news-item:nth-child(even) {
-      background-color: #f0f0f0;
-    }
-
-    .news-item {
-      padding: 15px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-
-    /* Featured research */
-    .research-item {
-      display: flex;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .research-image {
-      flex: 0 0 260px;
-    }
-
-    .research-content {
-      flex: 1;
-      padding: 20px;
-    }
-
-    /* Profile picture */
-    .profile-pic {
-      transition: transform 0.3s ease;
-    }
-
-    .profile-pic:hover {
-      transform: scale(1.05);
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .research-item {
-        flex-direction: column;
-      }
-
-      .research-image {
-        width: 100%;
-        max-width: 100%;
-      }
-    }
-  </style>
+        <footer>
+            Source code and design inspired by <a href="https://jonbarron.info/">Jon Barron</a> and <a href="https://walidbousselham.com/">Walid Bousselham</a>.
+        </footer>
+    </div>
 </body>
-
 </html>
