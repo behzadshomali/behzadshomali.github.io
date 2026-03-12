@@ -12,7 +12,7 @@
         :root {
             /* University of Bonn inspired colors */
             --bonn-blue: #005293;
-            --bonn-yellow: #FFCD00;
+            --bonn-yellow: #ffcc00;
             --bonn-light-blue: #2D7FB8;
             --bonn-gray: #6C7A89;
             --text-dark: #333333;
@@ -43,13 +43,23 @@
         header {
             background: linear-gradient(135deg, var(--bonn-blue) 0%, var(--bonn-light-blue) 100%);
             color: var(--white);
-            padding: 60px 20px;
-            text-align: center;
+            padding: 60px 40px;
             border-radius: 16px;
             margin-bottom: 40px;
             box-shadow: 0 8px 24px rgba(0, 82, 147, 0.2);
             position: relative;
             overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .header-text {
+            flex: 1;
+            text-align: left;
         }
 
         header::before {
@@ -59,7 +69,7 @@
             left: 0;
             right: 0;
             height: 6px;
-            background: var(--bonn-yellow);
+            /* background: var(--bonn-yellow); */
         }
 
         .uni-logo {
@@ -91,18 +101,18 @@
         }
 
         .profile-photo {
-            width: 180px;
-            height: 180px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
-            border: 6px solid var(--bonn-yellow);
-            margin: 0 auto 20px;
+            border: 3px solid var(--bonn-blue);
             object-fit: cover;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
 
         .profile-photo:hover {
-            transform: scale(1.05);
+            transform: scale(1.);
         }
 
         h1 {
@@ -114,14 +124,13 @@
         .bio {
             font-size: 1.1em;
             line-height: 1.8;
-            max-width: 800px;
-            margin: 20px auto;
+            margin: 20px 0;
             opacity: 0.95;
         }
 
         .social-links {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 15px;
             flex-wrap: wrap;
             margin-top: 25px;
@@ -150,12 +159,12 @@
             margin-bottom: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border-left: 5px solid var(--bonn-yellow);
+            /* border-left: 5px solid var(--bonn-yellow); */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .section:hover {
-            transform: translateY(-4px);
+            /* transform: translateY(-4px); */
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
         }
 
@@ -177,8 +186,8 @@
         }
 
         .news-item {
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 15px;
+            margin-bottom: 15px;
             background: linear-gradient(to right, #F8FCFF 0%, var(--bg-light) 100%);
             border-left: 4px solid var(--bonn-light-blue);
             border-radius: 8px;
@@ -186,8 +195,8 @@
         }
 
         .news-item:hover {
-            border-left-color: var(--bonn-yellow);
-            background: linear-gradient(to right, #FFF9E6 0%, var(--bg-light) 100%);
+            /* border-left-color: var(--bonn-yellow); */
+            background: linear-gradient(to right, #fff9e6 0%, var(--bg-light) 100%);
             transform: translateX(8px);
         }
 
@@ -212,7 +221,7 @@
         }
 
         .paper:hover {
-            border-color: var(--bonn-yellow);
+            /* border-color: var(--bonn-yellow); */
             box-shadow: 0 4px 16px rgba(0, 82, 147, 0.1);
         }
 
@@ -227,8 +236,8 @@
         }
 
         .paper:hover .paper-image {
-            border-color: var(--bonn-yellow);
-            transform: scale(1.05);
+            /* border-color: var(--bonn-yellow); */
+            transform: scale(1.1);
         }
 
         /* Modal/Lightbox styles */
@@ -360,7 +369,7 @@
             margin-top: 40px;
             background: var(--white);
             border-radius: 12px;
-            border-top: 3px solid var(--bonn-yellow);
+            /* border-top: 3px solid var(--bonn-yellow); */
         }
 
         footer a {
@@ -375,6 +384,19 @@
         }
 
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text {
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
             h1 {
                 font-size: 2em;
             }
@@ -414,80 +436,42 @@
     </style>
   
   <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5BMCY2PY4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-J5BMCY2PY4');
+  </script>
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J5BMCY2PY4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-
-  gtag('config', 'G-J5BMCY2PY4');
-</script>
-
-<script>
-  // Lightbox functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const paperImages = document.querySelectorAll('.paper-image');
-
-    // Open lightbox when clicking on paper images
-    paperImages.forEach(img => {
-      img.addEventListener('click', function() {
-        lightboxImg.src = this.src;
-        lightboxImg.alt = this.alt;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-      });
-    });
-
-    // Close lightbox when clicking the close button
-    closeBtn.addEventListener('click', closeLightbox);
-
-    // Close lightbox when clicking outside the image
-    lightbox.addEventListener('click', function(e) {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-
-    // Close lightbox on ESC key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-        closeLightbox();
-      }
-    });
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = ''; // Restore scrolling
-    }
-  });
-</script>
 
 <body>
     <div class="container">
         <header>
             <img src="images/uni_bonn_logo.png" alt="University of Bonn Logo" class="uni-logo">
             <img src="images/lamarr_logo.png" alt="Lamarr Institute Logo" class="lamarr-logo">
-            <img src="images/BehzadShomali.jpeg" alt="Behzad Shomali" class="profile-photo">
-            <h1>Behzad Shomali</h1>
-            <div class="bio">
+            <div class="header-content">
+                <img src="images/BehzadShomali.jpeg" alt="Behzad Shomali" class="profile-photo">
+                <div class="header-text">
+                    <h1>Behzad Shomali</h1>
+                    <div class="bio">
                 I'm currently pursuing a PhD at the <strong>University of Bonn</strong> with a focus on reasoning in large language models (LLMs), particularly in multilingual contexts.
                 <br><br>
                 Over the years, I've worked across both academia and industry, gaining experience in research, applied machine learning, and effective collaboration. This has included publishing research papers, building machine learning applications, and collaborating across interdisciplinary teams.
                 <br><br>
                 My Master's thesis at <strong>BMW Group</strong> focused on developing a probabilistic latency predictor for neural architecture search (NAS). Before that, at <strong>FEV Group</strong> in collaboration with RWTH Aachen University, I worked on building LLM-based AI assistants for coding environments. Earlier in my career, during my time at the <strong>Max Planck Institute</strong>, I was involved in analyzing high-dimensional scans of the C. elegans brain.
             </div>
-            <div class="social-links">
-                <a href="mailto:behzad.shomali@gmail.com">Email</a>
-                <a href="https://scholar.google.com/citations?user=l-BkqQ8AAAAJ&hl=en&oi=ao">Scholar</a>
-                <a href="https://www.researchgate.net/profile/Behzad_Shomali">ResearchGate</a>
-                <a href="https://www.linkedin.com/in/behzad-shomali-59679859/">LinkedIn</a>
-                <a href="https://github.com/behzadshomali/">Github</a>
+                    <div class="social-links">
+                        <a href="mailto:behzad.shomali@gmail.com">Email</a>
+                        <a href="https://scholar.google.com/citations?user=l-BkqQ8AAAAJ&hl=en&oi=ao">Scholar</a>
+                        <a href="https://www.researchgate.net/profile/Behzad_Shomali">ResearchGate</a>
+                        <a href="https://www.linkedin.com/in/behzad-shomali-59679859/">LinkedIn</a>
+                        <a href="https://github.com/behzadshomali/">Github</a>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -594,5 +578,47 @@
             <img id="lightbox-img" src="" alt="" class="lightbox-image">
         </div>
     </div>
+
+    <script>
+      // Lightbox functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+        const paperImages = document.querySelectorAll('.paper-image');
+
+        // Open lightbox when clicking on paper images
+        paperImages.forEach(img => {
+          img.addEventListener('click', function() {
+            lightboxImg.src = this.src;
+            lightboxImg.alt = this.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+          });
+        });
+
+        // Close lightbox when clicking the close button
+        closeBtn.addEventListener('click', closeLightbox);
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        // Close lightbox on ESC key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+          }
+        });
+
+        function closeLightbox() {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = ''; // Restore scrolling
+        }
+      });
+    </script>
 </body>
 </html>
