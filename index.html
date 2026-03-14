@@ -235,6 +235,11 @@
             cursor: pointer;
         }
 
+        .paper-image-cropped {
+            height: 130px;
+            object-position: 0 -50px;
+        }
+
         .paper:hover .paper-image {
             /* border-color: var(--bonn-yellow); */
             transform: scale(1.1);
@@ -478,8 +483,12 @@
         <div class="section">
             <h2><span class="emoji">📢</span>News</h2>
             <div class="news-item">
+                <div class="news-date">03.2026</div>
+                Two papers got accepted at the <b>ICLR Latent Reasoning Workshop 2026</b>: <em>"Adaptive Loops and Memory in Transformers: Think Harder or Know More?"</em> and <em>"Is continuous CoT better suited for multi-lingual reasoning?"</em>
+            </div>
+            <div class="news-item">
                 <div class="news-date">08.2025</div>
-                Our paper <em>"HiFi-LLP: High-Fidelity, Low-Cost Latency Predictors with Confidence for Robust HW-NAS"</em> got accepted at 38th IEEE International System-on-Chip Conference (SOCC 2025)!
+                Our paper <em>"HiFi-LLP: High-Fidelity, Low-Cost Latency Predictors with Confidence for Robust HW-NAS"</em> got accepted at 38th IEEE International System-on-Chip Conference (<b>SOCC 2025</b>)!
             </div>
             <div class="news-item">
                 <div class="news-date">08.2025</div>
@@ -497,6 +506,38 @@
 
         <div class="section">
             <h2><span class="emoji">🔬</span>Featured Research</h2>
+
+            <div class="paper">
+                <img src="images/papers/think_vs_know.gif" alt="Think harder or know more" class="paper-image paper-image-cropped">
+                <div class="paper-content">
+                    <div class="paper-title"><a href="https://arxiv.org/pdf/2603.08391">Adaptive Loops and Memory in Transformers: Think Harder or Know More?</a></div>
+                    <div class="paper-authors">
+                      <a href="https://markusfrey.org/">Markus Frey</a>,
+                      <strong>Behzad Shomali</strong>,
+                      <a href="https://scholar.google.com/citations?user=YvaaLHsAAAAJ&hl=en">Ali Hamza Bashir</a>,
+                      <a href="https://scholar.google.com/citations?user=XrQyCXEAAAAJ&hl=en">David Berghaus</a>,
+                      <a href="https://lamarr-institute.org/de/person/dr-joachim-kohler/">Joachim Koehler</a>, 
+                      <a href="https://lamarr-institute.org/person/ali-mehdi/">Mehdi Ali</a> 
+                    </div>
+                    <div class="paper-venue">ICLR Latent Reasoning Workshop, 2026</div>
+                </div>
+            </div>
+
+            <div class="paper">
+                <img src="images/papers/implicit_CoT.png" alt="Is continuous CoT better for multi-lingual reasoning?" class="paper-image">
+                <div class="paper-content">
+                    <div class="paper-title"><a href="https://arxiv.org/pdf/2603.08177">Is continuous CoT better suited for multi-lingual reasoning?</a></div>
+                    <div class="paper-authors">
+                      <a href="https://scholar.google.com/citations?user=YvaaLHsAAAAJ&hl=en">Ali Hamza Bashir</a>,
+                      <strong>Behzad Shomali</strong>,
+                      <a href="https://markusfrey.org/">Markus Frey</a>,
+                      <a href="https://lamarr-institute.org/person/ali-mehdi/">Mehdi Ali</a>, 
+                      <a href="https://scholar.google.com/citations?user=4jBgqpcAAAAJ&hl=de">Rafet Sifa</a>, 
+                      <a href="https://scholar.google.com/citations?user=XrQyCXEAAAAJ&hl=en">David Berghaus</a>
+                    </div>
+                    <div class="paper-venue">ICLR Latent Reasoning Workshop, 2026</div>
+                </div>
+            </div>
             
             <div class="paper">
                 <img src="images/papers/BMW.png" alt="HiFi-LLP" class="paper-image">
